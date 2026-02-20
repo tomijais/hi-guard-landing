@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HiGuard – Stop Sending Broken Templates</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HiGuard — Never send “Hi {{Name}}” again</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
       --blue: #2563EB;
@@ -29,8 +37,8 @@
       --radius-sm: 8px;
       --radius: 12px;
       --radius-lg: 16px;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
-      --shadow: 0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+      --shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
     }
 
     body {
@@ -46,7 +54,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255,255,255,0.92);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       padding: 0 48px;
@@ -55,6 +63,7 @@
       align-items: center;
       justify-content: space-between;
     }
+
     .nav-logo {
       display: flex;
       align-items: center;
@@ -65,7 +74,11 @@
       text-decoration: none;
       letter-spacing: -0.3px;
     }
-    .nav-logo svg { color: var(--blue); }
+
+    .nav-logo svg {
+      color: var(--blue);
+    }
+
     .nav-links {
       display: flex;
       gap: 28px;
@@ -74,8 +87,17 @@
       font-weight: 500;
       color: var(--text-soft);
     }
-    .nav-links a { text-decoration: none; color: inherit; transition: color 0.15s; }
-    .nav-links a:hover { color: var(--text); }
+
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
     .btn-nav {
       background: var(--blue);
       color: white;
@@ -89,13 +111,29 @@
       transition: background 0.15s;
       display: inline-block;
     }
-    .btn-nav:hover { background: var(--blue-dark); }
+
+    .btn-nav:hover {
+      background: var(--blue-dark);
+    }
 
     /* ─── SECTION WRAPPER ─── */
-    .section { padding: 88px 24px; }
-    .section-alt { background: var(--white); }
-    .container { max-width: 900px; margin: 0 auto; }
-    .container-sm { max-width: 680px; margin: 0 auto; }
+    .section {
+      padding: 88px 24px;
+    }
+
+    .section-alt {
+      background: var(--white);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .container-sm {
+      max-width: 680px;
+      margin: 0 auto;
+    }
 
     /* ─── HERO ─── */
     .hero {
@@ -103,6 +141,7 @@
       text-align: center;
       background: var(--bg);
     }
+
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -117,7 +156,11 @@
       margin-bottom: 28px;
       box-shadow: var(--shadow-sm);
     }
-    .hero-badge svg { color: var(--blue); }
+
+    .hero-badge svg {
+      color: var(--blue);
+    }
+
     .hero h1 {
       font-size: clamp(2.4rem, 5vw, 3.5rem);
       font-weight: 900;
@@ -126,6 +169,7 @@
       letter-spacing: -2px;
       margin-bottom: 20px;
     }
+
     .hero-sub {
       font-size: 1.05rem;
       color: var(--text-soft);
@@ -133,12 +177,14 @@
       margin: 0 auto 36px;
       line-height: 1.7;
     }
+
     .hero-actions {
       display: flex;
       gap: 12px;
       justify-content: center;
       flex-wrap: wrap;
     }
+
     .btn-primary {
       background: var(--blue);
       color: white;
@@ -154,7 +200,12 @@
       gap: 6px;
       transition: background 0.15s, transform 0.1s;
     }
-    .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+    .btn-primary:hover {
+      background: var(--blue-dark);
+      transform: translateY(-1px);
+    }
+
     .btn-outline {
       background: var(--white);
       color: var(--text-mid);
@@ -167,7 +218,11 @@
       text-decoration: none;
       transition: border-color 0.15s, color 0.15s;
     }
-    .btn-outline:hover { border-color: var(--text-soft); color: var(--text); }
+
+    .btn-outline:hover {
+      border-color: var(--text-soft);
+      color: var(--text);
+    }
 
     /* ─── EMAIL MOCKUP ─── */
     .mockup-wrap {
@@ -175,13 +230,15 @@
       margin: 0 auto;
       padding: 0 24px;
     }
+
     .email-window {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      box-shadow: 0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10), 0 2px 8px rgba(0, 0, 0, 0.06);
       overflow: hidden;
     }
+
     .window-chrome {
       background: #F8FAFC;
       border-bottom: 1px solid var(--border);
@@ -190,26 +247,47 @@
       align-items: center;
       gap: 8px;
     }
-    .dot { width: 12px; height: 12px; border-radius: 50%; }
-    .dot-red { background: #FF5F57; }
-    .dot-yellow { background: #FFBD2E; }
-    .dot-green { background: #28C840; }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot-red {
+      background: #FF5F57;
+    }
+
+    .dot-yellow {
+      background: #FFBD2E;
+    }
+
+    .dot-green {
+      background: #28C840;
+    }
+
     .window-title {
       margin-left: 8px;
       font-size: 0.8rem;
       font-weight: 600;
       color: var(--text-soft);
     }
+
     .email-header {
       padding: 18px 22px 14px;
       border-bottom: 1px solid #F1F5F9;
     }
+
     .email-field {
       font-size: 0.85rem;
       color: var(--text-soft);
       margin-bottom: 5px;
     }
-    .email-field span { color: var(--text-mid); }
+
+    .email-field span {
+      color: var(--text-mid);
+    }
+
     .email-body {
       padding: 18px 22px 22px;
       font-size: 0.88rem;
@@ -217,6 +295,7 @@
       line-height: 1.9;
       font-family: 'Courier New', monospace;
     }
+
     .ph {
       display: inline;
       background: #FEE2E2;
@@ -228,15 +307,17 @@
       font-weight: 600;
       font-family: 'Courier New', monospace;
     }
+
     .higuard-modal-preview {
       margin: 12px 22px 18px;
       background: var(--white);
       border: 1.5px solid var(--border);
       border-radius: var(--radius);
       padding: 20px 22px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10);
       font-family: 'Inter', sans-serif;
     }
+
     .hmp-header {
       display: flex;
       align-items: center;
@@ -245,17 +326,20 @@
       color: var(--text);
       margin-bottom: 8px;
     }
+
     .hmp-desc {
       font-size: 0.78rem;
       color: var(--text-soft);
       margin-bottom: 12px;
     }
+
     .hmp-pills {
       display: flex;
       flex-wrap: wrap;
       gap: 5px;
       margin-bottom: 16px;
     }
+
     .hmp-pill {
       background: #FEE2E2;
       color: #DC2626;
@@ -266,7 +350,12 @@
       border-radius: 5px;
       border: 1px solid #FECACA;
     }
-    .hmp-actions { display: flex; gap: 8px; }
+
+    .hmp-actions {
+      display: flex;
+      gap: 8px;
+    }
+
     .hmp-btn-fix {
       background: var(--blue);
       color: white;
@@ -278,6 +367,7 @@
       cursor: default;
       font-family: inherit;
     }
+
     .hmp-btn-skip {
       background: transparent;
       color: var(--text-soft);
@@ -297,6 +387,7 @@
       border-bottom: 1px solid var(--border);
       padding: 40px 24px;
     }
+
     .stats-grid {
       max-width: 860px;
       margin: 0 auto;
@@ -305,6 +396,7 @@
       gap: 24px;
       text-align: center;
     }
+
     .stat-num {
       font-size: 2rem;
       font-weight: 900;
@@ -313,7 +405,12 @@
       line-height: 1;
       margin-bottom: 6px;
     }
-    .stat-label { font-size: 0.82rem; color: var(--text-soft); line-height: 1.4; }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      line-height: 1.4;
+    }
 
     /* ─── HOW IT WORKS ─── */
     .steps-grid {
@@ -322,9 +419,15 @@
       gap: 32px;
       margin-top: 56px;
     }
-    .step-card { text-align: center; padding: 0 12px; }
+
+    .step-card {
+      text-align: center;
+      padding: 0 12px;
+    }
+
     .step-icon-wrap {
-      width: 60px; height: 60px;
+      width: 60px;
+      height: 60px;
       background: var(--blue-light);
       border-radius: 14px;
       display: flex;
@@ -332,7 +435,11 @@
       justify-content: center;
       margin: 0 auto 16px;
     }
-    .step-icon-wrap svg { color: var(--blue); }
+
+    .step-icon-wrap svg {
+      color: var(--blue);
+    }
+
     .step-label {
       font-size: 0.7rem;
       font-weight: 700;
@@ -341,11 +448,26 @@
       text-transform: uppercase;
       margin-bottom: 8px;
     }
-    .step-card h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 10px; }
-    .step-card p { font-size: 0.85rem; color: var(--text-soft); line-height: 1.65; }
+
+    .step-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .step-card p {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      line-height: 1.65;
+    }
 
     /* ─── SECTION HEADER ─── */
-    .section-header { text-align: center; margin-bottom: 52px; }
+    .section-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
     .section-header h2 {
       font-size: clamp(1.6rem, 3vw, 2.1rem);
       font-weight: 800;
@@ -354,7 +476,13 @@
       line-height: 1.2;
       margin-bottom: 12px;
     }
-    .section-header p { font-size: 0.95rem; color: var(--text-soft); max-width: 480px; margin: 0 auto; }
+
+    .section-header p {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      max-width: 480px;
+      margin: 0 auto;
+    }
 
     /* ─── FEATURES ─── */
     .features-grid {
@@ -362,6 +490,7 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
+
     .feature-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -372,8 +501,10 @@
       align-items: flex-start;
       box-shadow: var(--shadow-sm);
     }
+
     .feature-icon {
-      width: 40px; height: 40px;
+      width: 40px;
+      height: 40px;
       background: var(--blue-light);
       border-radius: 10px;
       display: flex;
@@ -381,9 +512,24 @@
       justify-content: center;
       flex-shrink: 0;
     }
-    .feature-icon svg { color: var(--blue); }
-    .feature-card h3 { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 5px; }
-    .feature-card p { font-size: 0.83rem; color: var(--text-soft); line-height: 1.6; }
+
+    .feature-icon svg {
+      color: var(--blue);
+    }
+
+    .feature-card h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+
+    .feature-card p {
+      font-size: 0.83rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
     .tag-soon {
       display: inline-block;
       background: #FEF9C3;
@@ -395,6 +541,7 @@
       letter-spacing: 0.3px;
       margin-top: 6px;
     }
+
     .tag-road {
       display: inline-block;
       background: #EDE9FE;
@@ -415,6 +562,7 @@
       max-width: 820px;
       margin: 0 auto;
     }
+
     .compare-card {
       background: var(--white);
       border: 1.5px solid var(--border);
@@ -422,7 +570,11 @@
       padding: 28px;
       box-shadow: var(--shadow-sm);
     }
-    .compare-card.good { border-color: #BFDBFE; }
+
+    .compare-card.good {
+      border-color: #BFDBFE;
+    }
+
     .compare-header {
       display: flex;
       align-items: center;
@@ -431,9 +583,22 @@
       font-size: 0.9rem;
       margin-bottom: 20px;
     }
-    .compare-header.bad { color: var(--red); }
-    .compare-header.good { color: var(--blue); }
-    .compare-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .compare-header.bad {
+      color: var(--red);
+    }
+
+    .compare-header.good {
+      color: var(--blue);
+    }
+
+    .compare-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
     .compare-list li {
       display: flex;
       align-items: flex-start;
@@ -441,7 +606,11 @@
       font-size: 0.85rem;
       color: var(--text-mid);
     }
-    .compare-list li svg { flex-shrink: 0; margin-top: 1px; }
+
+    .compare-list li svg {
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
 
     /* ─── WHO ─── */
     .who-grid {
@@ -449,6 +618,7 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
     }
+
     .who-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -458,13 +628,35 @@
       box-shadow: var(--shadow-sm);
       transition: box-shadow 0.2s, transform 0.15s;
     }
-    .who-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
-    .who-emoji { font-size: 2rem; margin-bottom: 12px; }
-    .who-card h3 { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
-    .who-card p { font-size: 0.8rem; color: var(--text-soft); line-height: 1.6; }
+
+    .who-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+    }
+
+    .who-emoji {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .who-card h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .who-card p {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
 
     /* ─── PLATFORMS ─── */
-    .platforms-wrap { text-align: center; }
+    .platforms-wrap {
+      text-align: center;
+    }
+
     .platforms-grid {
       display: flex;
       gap: 12px;
@@ -472,6 +664,7 @@
       flex-wrap: wrap;
       margin-top: 40px;
     }
+
     .platform-pill {
       display: inline-flex;
       align-items: center;
@@ -492,6 +685,7 @@
       padding: 80px 24px;
       text-align: center;
     }
+
     .cta-section h2 {
       font-size: clamp(1.8rem, 4vw, 2.6rem);
       font-weight: 900;
@@ -499,7 +693,13 @@
       letter-spacing: -1px;
       margin-bottom: 14px;
     }
-    .cta-section p { color: rgba(255,255,255,0.75); font-size: 0.95rem; margin-bottom: 32px; }
+
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+    }
+
     .cta-form {
       display: flex;
       gap: 10px;
@@ -508,20 +708,29 @@
       margin: 0 auto;
       flex-wrap: wrap;
     }
+
     .cta-form input {
       flex: 1;
       min-width: 220px;
       padding: 13px 16px;
-      border: 1.5px solid rgba(255,255,255,0.3);
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
       border-radius: var(--radius-sm);
-      background: rgba(255,255,255,0.12);
+      background: rgba(255, 255, 255, 0.12);
       color: white;
       font-size: 0.9rem;
       outline: none;
       transition: border 0.2s;
     }
-    .cta-form input::placeholder { color: rgba(255,255,255,0.55); }
-    .cta-form input:focus { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.18); }
+
+    .cta-form input::placeholder {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .cta-form input:focus {
+      border-color: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.18);
+    }
+
     .btn-cta {
       background: white;
       color: var(--blue);
@@ -536,8 +745,16 @@
       gap: 6px;
       transition: opacity 0.15s;
     }
-    .btn-cta:hover { opacity: 0.92; }
-    .cta-note { color: rgba(255,255,255,0.55); font-size: 0.78rem; margin-top: 14px; }
+
+    .btn-cta:hover {
+      opacity: 0.92;
+    }
+
+    .cta-note {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.78rem;
+      margin-top: 14px;
+    }
 
     /* ─── FOOTER ─── */
     footer {
@@ -550,398 +767,541 @@
       font-size: 0.82rem;
       color: var(--text-soft);
     }
-    .footer-links { display: flex; gap: 24px; }
-    .footer-links a { color: inherit; text-decoration: none; transition: color 0.15s; }
-    .footer-links a:hover { color: var(--text); }
-    footer .copyright { color: var(--text-xsoft); }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    footer .copyright {
+      color: var(--text-xsoft);
+    }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
-      nav { padding: 0 20px; }
-      .nav-links { display: none; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .steps-grid { grid-template-columns: 1fr; gap: 40px; }
-      .features-grid { grid-template-columns: 1fr; }
-      .compare-grid { grid-template-columns: 1fr; }
-      .who-grid { grid-template-columns: repeat(2, 1fr); }
-      footer { flex-direction: column; gap: 16px; padding: 24px; text-align: center; }
+      nav {
+        padding: 0 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .compare-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .who-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 16px;
+        padding: 24px;
+        text-align: center;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-    </svg>
-    HiGuard
-  </a>
-  <ul class="nav-links">
-    <li><a href="#how">How It Works</a></li>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#who">Who It's For</a></li>
-  </ul>
-  <a href="#cta" class="btn-nav">Get Early Access</a>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-badge">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-    Chrome Extension
-  </div>
-  <h1>Never send<br>Hi [Name] again</h1>
-  <p class="hero-sub">HiGuard is a Chrome extension that detects unfilled placeholders in your messages, highlights them in real time, and blocks send until you fix them. No more embarrassing template mistakes on Gmail, LinkedIn, or Outlook.</p>
-  <div class="hero-actions">
-    <a href="#cta" class="btn-primary">
-      Join the Waitlist
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+      HiGuard
     </a>
-    <a href="#how" class="btn-outline">See How It Works</a>
-  </div>
-</section>
+    <ul class="nav-links">
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#who">Who It's For</a></li>
+    </ul>
+    <a href="#cta" class="btn-nav">Get Early Access</a>
+  </nav>
 
-<!-- EMAIL MOCKUP -->
-<div class="mockup-wrap" style="padding-bottom: 72px;">
-  <div class="email-window">
-    <div class="window-chrome">
-      <div class="dot dot-red"></div>
-      <div class="dot dot-yellow"></div>
-      <div class="dot dot-green"></div>
-      <span class="window-title">New Message</span>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 8v4l3 3" />
+      </svg>
+      Chrome Extension
     </div>
-    <div class="email-header">
-      <div class="email-field">To: <span>sarah@techcorp.io</span></div>
-      <div class="email-field">Subject: <span>Quick question about your team</span></div>
+    <h1>Never send<br>“Hi {{Name}}” again</h1>
+    <p class="hero-sub">
+      HiGuard runs locally in your browser and flags unfilled placeholders while you write.
+      If you try to send with a “{{company}}” still there, it warns you instantly — nothing is sent to any server.
+      Works on Gmail, LinkedIn, Outlook, and most web editors.
+    </p>
+    <div class="hero-actions">
+      <a href="#cta" class="btn-primary">
+        Join the Waitlist
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </a>
+      <a href="#how" class="btn-outline">See How It Works</a>
     </div>
-    <div class="email-body">
-      Hi Sarah,<br><br>
-      I read your post on scaling engineering at <span class="ph">{{company_name}}</span> and it really resonated with our work at Acme.<br><br>
-      Would love to show you how we help teams like <span class="ph">[Company]</span> ship faster. Free 15 min this <span class="ph">{{day_of_week}}</span>?<br><br>
-      Best,<br>
-      Alex
-    </div>
-    <div class="higuard-modal-preview">
-      <div class="hmp-header">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2.2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
-        <strong>HiGuard found 3 unfilled placeholders</strong>
-      </div>
-      <div class="hmp-desc">These look like template variables that haven't been filled in yet.</div>
-      <div class="hmp-pills">
-        <span class="hmp-pill">{{company_name}}</span>
-        <span class="hmp-pill">[Company]</span>
-        <span class="hmp-pill">{{day_of_week}}</span>
-      </div>
-      <div class="hmp-actions">
-        <button class="hmp-btn-fix">Go back and fix</button>
-        <button class="hmp-btn-skip">Send anyway</button>
-      </div>
-    </div>
-  </div>
-</div>
+  </section>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stats-grid">
-    <div>
-      <div class="stat-num">5</div>
-      <div class="stat-label">Placeholder formats caught</div>
-    </div>
-    <div>
-      <div class="stat-num">Instant</div>
-      <div class="stat-label">Highlights as you type</div>
-    </div>
-    <div>
-      <div class="stat-num">100%</div>
-      <div class="stat-label">Local processing</div>
-    </div>
-    <div>
-      <div class="stat-num">0</div>
-      <div class="stat-label">Data sent to servers</div>
-    </div>
-  </div>
-</div>
-
-<!-- HOW IT WORKS -->
-<section class="section section-alt" id="how">
-  <div class="container">
-    <div class="section-header">
-      <h2>Set it up once,<br>never think about it</h2>
-      <p>HiGuard runs silently in the background. No dashboards, no learning curve.</p>
-    </div>
-    <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-icon-wrap">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        </div>
-        <div class="step-label">Step 01</div>
-        <h3>Install the extension</h3>
-        <p>Add HiGuard from the Chrome Web Store. Takes under 10 seconds. No account required.</p>
+  <!-- EMAIL MOCKUP -->
+  <div class="mockup-wrap" style="padding-bottom: 72px;">
+    <div class="email-window">
+      <div class="window-chrome">
+        <div class="dot dot-red"></div>
+        <div class="dot dot-yellow"></div>
+        <div class="dot dot-green"></div>
+        <span class="window-title">New Message</span>
       </div>
-      <div class="step-card">
-        <div class="step-icon-wrap">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3,7 12,13 21,7"/></svg>
-        </div>
-        <div class="step-label">Step 02</div>
-        <h3>Write your message</h3>
-        <p>Compose in Gmail, LinkedIn, or any web-based messaging tool like normal.</p>
+      <div class="email-header">
+        <div class="email-field">To: <span>sarah@techcorp.io</span></div>
+        <div class="email-field">Subject: <span>Quick question about your team</span></div>
       </div>
-      <div class="step-card">
-        <div class="step-icon-wrap">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div class="step-label">Step 03</div>
-        <h3>Send with confidence</h3>
-        <p>Hit send or Cmd+Enter and HiGuard blocks the message with an alert if placeholders remain. Fix them or send anyway.</p>
+      <div class="email-body">
+        Hi Sarah,<br><br>
+        I read your post on scaling engineering at <span class="ph">{{company_name}}</span> and it really resonated with
+        our work at Acme.<br><br>
+        Would love to show you how we help teams like <span class="ph">[Company]</span> ship faster. Free 15 min this
+        <span class="ph">{{day_of_week}}</span>?<br><br>
+        Best,<br>
+        Alex
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section class="section" id="features">
-  <div class="container">
-    <div class="section-header">
-      <h2>Built for people who send<br>a lot of messages</h2>
-      <p>Every feature exists to save you from one thing: sending a broken message.</p>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      <div class="higuard-modal-preview">
+        <div class="hmp-header">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2.2">
+            <path
+              d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+          </svg>
+          <strong>HiGuard found 3 unfilled placeholders</strong>
         </div>
-        <div>
-          <h3>Real-time highlighting</h3>
-          <p>Placeholders turn red as you type or paste. You see the problem before you hit send.</p>
+        <div class="hmp-desc">These look like template variables that haven't been filled in yet.</div>
+        <div class="hmp-pills">
+          <span class="hmp-pill">{{company_name}}</span>
+          <span class="hmp-pill">[Company]</span>
+          <span class="hmp-pill">{{day_of_week}}</span>
         </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </div>
-        <div>
-          <h3>Multi-format detection</h3>
-          <p>Catches {{double braces}}, {single braces}, [[double brackets]], [brackets], and &lt;angle brackets&gt;.</p>
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6s4-6 11-6 11 6 11 6-4 6-11 6S1 6 1 6z"/><circle cx="12" cy="6" r="2"/></svg>
-        </div>
-        <div>
-          <h3>Multi-language send detection</h3>
-          <p>Detects send buttons in 35+ languages. Works regardless of your browser language.</p>
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        </div>
-        <div>
-          <h3>Zero configuration</h3>
-          <p>Install and forget. No settings to adjust, no accounts to create.</p>
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-        </div>
-        <div>
-          <h3>Template library</h3>
-          <p>Save your best outreach templates with required fields marked. Insert with one click.</p>
-          <span class="tag-soon">Coming Soon</span>
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M22 2 12 12"/><path d="M17 2h5v5"/></svg>
-        </div>
-        <div>
-          <h3>AI fill suggestions</h3>
-          <p>When context is available (open LinkedIn tab, email thread), HiGuard suggests what to fill.</p>
-          <span class="tag-road">Roadmap</span>
+        <div class="hmp-actions">
+          <button class="hmp-btn-fix">Go back and fix</button>
+          <button class="hmp-btn-skip">Send anyway</button>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- BEFORE / AFTER -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-header">
-      <h2>What changes when you install HiGuard</h2>
-    </div>
-    <div class="compare-grid">
-      <div class="compare-card">
-        <div class="compare-header bad">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          Without HiGuard
-        </div>
-        <ul class="compare-list">
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            Broken messages reach prospects
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            Placeholder text embarrasses your brand
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            Follow-ups needed to apologize
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            Lost credibility and trust
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            Lower reply rates on cold outreach
-          </li>
-        </ul>
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-num">5</div>
+        <div class="stat-label">Placeholder formats caught</div>
       </div>
-      <div class="compare-card good">
-        <div class="compare-header good">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-          With HiGuard
-        </div>
-        <ul class="compare-list">
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-            Every message scanned before it sends
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-            Placeholders flagged with clear warnings
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-            No embarrassing follow-up corrections
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-            Professional impression every time
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-            Higher reply and conversion rates
-          </li>
-        </ul>
+      <div>
+        <div class="stat-num">Instant</div>
+        <div class="stat-label">Highlights as you type</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Chrome Extension · Runs locally</div>
+      </div>
+      <div>
+        <div class="stat-num">0</div>
+        <div class="stat-label">Message content sent</div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- WHO IT'S FOR -->
-<section class="section" id="who">
-  <div class="container" style="max-width:960px;">
-    <div class="section-header">
-      <h2>Built for everyone who does outreach</h2>
-      <p>One mistake can undo weeks of relationship-building. HiGuard makes sure it never happens.</p>
-    </div>
-    <div class="who-grid">
-      <div class="who-card">
-        <div class="who-emoji">💼</div>
-        <h3>Sales Reps & SDRs</h3>
-        <p>Send hundreds of cold emails without a single placeholder slip.</p>
-      </div>
-      <div class="who-card">
-        <div class="who-emoji">🔍</div>
-        <h3>Recruiters & HR</h3>
-        <p>Reach out to candidates without accidentally leaving in merge fields.</p>
-      </div>
-      <div class="who-card">
-        <div class="who-emoji">📄</div>
-        <h3>Job Seekers</h3>
-        <p>Submit cover letters and networking messages that always look polished.</p>
-      </div>
-      <div class="who-card">
-        <div class="who-emoji">🤝</div>
-        <h3>Founders & Networkers</h3>
-        <p>Pitch investors and partners with messages that read like they were handwritten.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PLATFORMS -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="platforms-wrap">
+  <!-- HOW IT WORKS -->
+  <section class="section section-alt" id="how">
+    <div class="container">
       <div class="section-header">
-        <h2>Works where you already write</h2>
-        <p>HiGuard integrates with any text field on the web. No extra apps, no switching tools.</p>
+        <h2>Set it up once,<br>never think about it</h2>
+        <p>HiGuard runs silently in the background. No dashboards, no learning curve.</p>
       </div>
-      <div class="platforms-grid">
-        <div class="platform-pill">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3,7 12,13 21,7"/></svg>
-          Gmail
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 8v4l3 3" />
+            </svg>
+          </div>
+          <div class="step-label">Step 01</div>
+          <h3>Install the extension</h3>
+<p>Add HiGuard from the Chrome Web Store. Takes ~10 seconds. No account required.</p>        </div>
+        <div class="step-card">
+          <div class="step-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <polyline points="3,7 12,13 21,7" />
+            </svg>
+          </div>
+          <div class="step-label">Step 02</div>
+          <h3>Write your message</h3>
+<p>Compose in Gmail, LinkedIn, Outlook, and most web-based messaging tools like normal.</p>        </div>
+        <div class="step-card">
+          <div class="step-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <div class="step-label">Step 03</div>
+          <h3>Send with confidence</h3>
+<p>Hit send or Cmd+Enter and HiGuard shows an alert if placeholders remain. Go back and fix — or send anyway.</p>        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Built for people who send<br>a lot of messages</h2>
+        <p>Every feature exists to save you from one thing: sending a broken message.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg>
+          </div>
+          <div>
+            <h3>Real-time highlighting</h3>
+            <p>Placeholders turn red as you type or paste. You see the problem before you hit send.</p>
+          </div>
         </div>
-        <div class="platform-pill">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </div>
+          <div>
+            <h3>Multi-format detection</h3>
+            <p>Catches {{double braces}}, {single braces}, [[double brackets]], [brackets], and &lt;angle brackets&gt;.
+            </p>
+          </div>
         </div>
-        <div class="platform-pill">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3,7 12,13 21,7"/></svg>
-          Outlook
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 6s4-6 11-6 11 6 11 6-4 6-11 6S1 6 1 6z" />
+              <circle cx="12" cy="6" r="2" />
+            </svg>
+          </div>
+          <div>
+            <h3>Multi-language send detection</h3>
+            <p>Detects send buttons in 35+ languages. Works regardless of your browser language.</p>
+          </div>
         </div>
-        <div class="platform-pill">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          Any contenteditable field
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
+          </div>
+          <div>
+            <h3>Zero configuration</h3>
+            <p>Install and forget. No settings to adjust, no accounts to create.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7" />
+              <rect x="14" y="3" width="7" height="7" />
+              <rect x="14" y="14" width="7" height="7" />
+              <rect x="3" y="14" width="7" height="7" />
+            </svg>
+          </div>
+          <div>
+            <h3>Template library</h3>
+            <p>Save your best outreach templates with required fields marked. Insert with one click.</p>
+            <span class="tag-soon">Coming Soon</span>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a10 10 0 1 0 10 10" />
+              <path d="M22 2 12 12" />
+              <path d="M17 2h5v5" />
+            </svg>
+          </div>
+          <div>
+            <h3>AI fill suggestions</h3>
+            <p>When context is available (open LinkedIn tab, email thread), HiGuard suggests what to fill.</p>
+            <span class="tag-road">Roadmap</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CTA -->
-<section class="cta-section" id="cta">
-  <div class="container-sm">
-    <h2>Stop sending broken messages</h2>
-    <p>Get early access to HiGuard and be the first to know when we launch on the Chrome Web Store.</p>
-    <form class="cta-form" onsubmit="handleCTA(event)">
-      <input type="email" placeholder="you@company.com" required />
-      <button type="submit" class="btn-cta">
-        Get Early Access
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </button>
-    </form>
-    <p class="cta-note">No spam. We only email you when HiGuard is ready.</p>
-  </div>
-</section>
+  <!-- BEFORE / AFTER -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>What changes when you install HiGuard</h2>
+      </div>
+      <div class="compare-grid">
+        <div class="compare-card">
+          <div class="compare-header bad">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="15" y1="9" x2="9" y2="15" />
+              <line x1="9" y1="9" x2="15" y2="15" />
+            </svg>
+            Without HiGuard
+          </div>
+          <ul class="compare-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="15" y1="9" x2="9" y2="15" />
+                <line x1="9" y1="9" x2="15" y2="15" />
+              </svg>
+              Broken messages reach prospects
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="15" y1="9" x2="9" y2="15" />
+                <line x1="9" y1="9" x2="15" y2="15" />
+              </svg>
+              Placeholder text embarrasses your brand
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="15" y1="9" x2="9" y2="15" />
+                <line x1="9" y1="9" x2="15" y2="15" />
+              </svg>
+              Follow-ups needed to apologize
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="15" y1="9" x2="9" y2="15" />
+                <line x1="9" y1="9" x2="15" y2="15" />
+              </svg>
+              Lost credibility and trust
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="15" y1="9" x2="9" y2="15" />
+                <line x1="9" y1="9" x2="15" y2="15" />
+              </svg>
+              Lower reply rates on cold outreach
+            </li>
+          </ul>
+        </div>
+        <div class="compare-card good">
+          <div class="compare-header good">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="9 12 11 14 15 10" />
+            </svg>
+            With HiGuard
+          </div>
+          <ul class="compare-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="9 12 11 14 15 10" />
+              </svg>
+              Every message scanned before it sends
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="9 12 11 14 15 10" />
+              </svg>
+              Placeholders flagged with clear warnings
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="9 12 11 14 15 10" />
+              </svg>
+              No embarrassing follow-up corrections
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="9 12 11 14 15 10" />
+              </svg>
+              Professional impression every time
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="9 12 11 14 15 10" />
+              </svg>
+              Higher reply and conversion rates
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <a href="#" class="nav-logo" style="font-size:0.95rem;">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-    </svg>
-    HiGuard
-  </a>
-  <div class="footer-links">
-    <a href="#">Privacy</a>
-    <a href="#">Terms</a>
-    <a href="#">Twitter</a>
-    <a href="#">Contact</a>
-  </div>
-  <div class="copyright">© 2026 HiGuard. All rights reserved.</div>
-</footer>
+  <!-- WHO IT'S FOR -->
+  <section class="section" id="who">
+    <div class="container" style="max-width:960px;">
+      <div class="section-header">
+        <h2>Built for everyone who does outreach</h2>
+        <p>One mistake can undo weeks of relationship-building. HiGuard makes sure it never happens.</p>
+      </div>
+      <div class="who-grid">
+        <div class="who-card">
+          <div class="who-emoji">💼</div>
+          <h3>Sales Reps & SDRs</h3>
+          <p>Send hundreds of cold emails without a single placeholder slip.</p>
+        </div>
+        <div class="who-card">
+          <div class="who-emoji">🔍</div>
+          <h3>Recruiters & HR</h3>
+          <p>Reach out to candidates without accidentally leaving in merge fields.</p>
+        </div>
+        <div class="who-card">
+          <div class="who-emoji">📄</div>
+          <h3>Job Seekers</h3>
+          <p>Submit cover letters and networking messages that always look polished.</p>
+        </div>
+        <div class="who-card">
+          <div class="who-emoji">🤝</div>
+          <h3>Founders & Networkers</h3>
+          <p>Pitch investors and partners with messages that read like they were handwritten.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-function handleCTA(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('button');
-  const input = e.target.querySelector('input');
-  btn.textContent = '🎉 You\'re on the list!';
-  btn.style.background = '#D1FAE5';
-  btn.style.color = '#065F46';
-  btn.disabled = true;
-  input.disabled = true;
-}
-</script>
+  <!-- PLATFORMS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="platforms-wrap">
+        <div class="section-header">
+          <h2>Works where you already write</h2>
+          <p><p>HiGuard works in most web-based editors — Gmail, LinkedIn, Outlook, and many others. No extra apps, no switching tools.</p></p>
+        </div>
+        <div class="platforms-grid">
+          <div class="platform-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <polyline points="3,7 12,13 21,7" />
+            </svg>
+            Gmail
+          </div>
+          <div class="platform-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+            LinkedIn
+          </div>
+          <div class="platform-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <polyline points="3,7 12,13 21,7" />
+            </svg>
+            Outlook
+          </div>
+          <div class="platform-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
+            Any web editor
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="cta">
+    <div class="container-sm">
+      <h2>Stop sending broken messages</h2>
+      <p>Get early access to HiGuard and be the first to know when we launch on the Chrome Web Store.</p>
+      <form class="cta-form" onsubmit="handleCTA(event)">
+        <input type="email" placeholder="you@company.com" required />
+        <button type="submit" class="btn-cta">
+          Get Early Access
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      </form>
+      <p class="cta-note">No spam. We only email you when HiGuard is ready.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#" class="nav-logo" style="font-size:0.95rem;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+      HiGuard
+    </a>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Twitter</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="copyright">© 2026 HiGuard. All rights reserved.</div>
+  </footer>
+
+  <script>
+    function handleCTA(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      const input = e.target.querySelector('input');
+      btn.textContent = '🎉 You\'re on the list!';
+      btn.style.background = '#D1FAE5';
+      btn.style.color = '#065F46';
+      btn.disabled = true;
+      input.disabled = true;
+    }
+  </script>
 
 </body>
+
 </html>
