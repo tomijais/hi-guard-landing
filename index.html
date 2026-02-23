@@ -679,6 +679,54 @@
       box-shadow: var(--shadow-sm);
     }
 
+    /* ─── CHANGELOG ─── */
+    .changelog-list {
+      max-width: 560px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .changelog-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .changelog-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--blue-light);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .changelog-icon svg {
+      color: var(--blue);
+    }
+
+    .changelog-item h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .changelog-item p {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
     /* ─── CTA SECTION ─── */
     .cta-section {
       background: var(--blue);
@@ -698,37 +746,6 @@
       color: rgba(255, 255, 255, 0.75);
       font-size: 0.95rem;
       margin-bottom: 32px;
-    }
-
-    .cta-form {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      max-width: 480px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-    }
-
-    .cta-form input {
-      flex: 1;
-      min-width: 220px;
-      padding: 13px 16px;
-      border: 1.5px solid rgba(255, 255, 255, 0.3);
-      border-radius: var(--radius-sm);
-      background: rgba(255, 255, 255, 0.12);
-      color: white;
-      font-size: 0.9rem;
-      outline: none;
-      transition: border 0.2s;
-    }
-
-    .cta-form input::placeholder {
-      color: rgba(255, 255, 255, 0.55);
-    }
-
-    .cta-form input:focus {
-      border-color: rgba(255, 255, 255, 0.7);
-      background: rgba(255, 255, 255, 0.18);
     }
 
     .btn-cta {
@@ -844,7 +861,7 @@
       <li><a href="#features">Features</a></li>
       <li><a href="#who">Who It's For</a></li>
     </ul>
-    <a href="#cta" class="btn-nav">Get Early Access</a>
+    <a href="https://chromewebstore.google.com/detail/higuard/YOUR_EXTENSION_ID" class="btn-nav" target="_blank">Install Free</a>
   </nav>
 
   <!-- HERO -->
@@ -852,19 +869,19 @@
     <div class="hero-badge">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
         <circle cx="12" cy="12" r="10" />
-        <path d="M12 8v4l3 3" />
+        <polyline points="9 12 11 14 15 10" />
       </svg>
-      Chrome Extension
+      Free Chrome Extension &middot; 5-second install
     </div>
     <h1>Never send<br>“Hi {{Name}}” again</h1>
     <p class="hero-sub">
-      HiGuard runs locally in your browser and flags unfilled placeholders while you write.
-      If you try to send with a “{{company}}” still there, it warns you instantly — nothing is sent to any server.
-      Works on Gmail, LinkedIn, Outlook, and most web editors.
+      HiGuard runs locally in your browser and flags unfilled placeholders as you type.
+      Hit send with a "{{company}}" still there and it stops you instantly — nothing leaves your machine.
+      Works on Gmail, LinkedIn, Outlook, and any web editor.
     </p>
     <div class="hero-actions">
-      <a href="#cta" class="btn-primary">
-        Join the Waitlist
+      <a href="https://chromewebstore.google.com/detail/higuard/YOUR_EXTENSION_ID" class="btn-primary" target="_blank">
+        Install Free on Chrome
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <path d="M5 12h14M12 5l7 7-7 7" />
         </svg>
@@ -1027,12 +1044,49 @@
         <div class="feature-card">
           <div class="feature-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              <circle cx="12" cy="12" r="10" />
+              <line x1="8" y1="12" x2="16" y2="12" />
             </svg>
           </div>
           <div>
-            <h3>Zero configuration</h3>
-            <p>Install and forget. No settings to adjust, no accounts to create.</p>
+            <h3>Ignore list</h3>
+            <p>Right-click any placeholder to permanently dismiss it. Manage your ignore list from the popup.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M12 8v8M8 12h8" />
+            </svg>
+          </div>
+          <div>
+            <h3>Icon badge count</h3>
+            <p>See how many placeholders are on the page at a glance — right on the extension icon.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <polyline points="9 12 11 14 15 10" />
+            </svg>
+          </div>
+          <div>
+            <h3>Smart filtering</h3>
+            <p>Common patterns like [sic], [edit], and [citation] are automatically ignored. No false positives.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="5" y="2" width="14" height="20" rx="2" />
+              <path d="M9 18h6" />
+            </svg>
+          </div>
+          <div>
+            <h3>Keyboard accessible</h3>
+            <p>Full Tab, Enter, and Escape support in the warning modal. No mouse needed.</p>
           </div>
         </div>
         <div class="feature-card">
@@ -1215,7 +1269,7 @@
       <div class="platforms-wrap">
         <div class="section-header">
           <h2>Works where you already write</h2>
-          <p><p>HiGuard works in most web-based editors — Gmail, LinkedIn, Outlook, and many others. No extra apps, no switching tools.</p></p>
+          <p>HiGuard works in most web-based editors — Gmail, LinkedIn, Outlook, and many others. No extra apps, no switching tools.</p>
         </div>
         <div class="platforms-grid">
           <div class="platform-pill">
@@ -1253,21 +1307,76 @@
     </div>
   </section>
 
+  <!-- WHAT'S NEW -->
+  <section class="section" id="changelog">
+    <div class="container">
+      <div class="section-header">
+        <h2>What's new in v0.2</h2>
+        <p>The latest release is live on the Chrome Web Store.</p>
+      </div>
+      <div class="changelog-list">
+        <div class="changelog-item">
+          <div class="changelog-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" /><line x1="8" y1="12" x2="16" y2="12" />
+            </svg>
+          </div>
+          <div>
+            <h4>Ignore list</h4>
+            <p>Right-click any highlighted placeholder to permanently dismiss it. Manage from the popup.</p>
+          </div>
+        </div>
+        <div class="changelog-item">
+          <div class="changelog-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" /><path d="M12 8v8M8 12h8" />
+            </svg>
+          </div>
+          <div>
+            <h4>Icon badge count</h4>
+            <p>The extension icon now shows how many placeholders are on the page in real time.</p>
+          </div>
+        </div>
+        <div class="changelog-item">
+          <div class="changelog-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><polyline points="9 12 11 14 15 10" />
+            </svg>
+          </div>
+          <div>
+            <h4>Smart filtering &amp; safe list</h4>
+            <p>Common editorial patterns like [sic] and [edit] are automatically skipped.</p>
+          </div>
+        </div>
+        <div class="changelog-item">
+          <div class="changelog-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="5" y="2" width="14" height="20" rx="2" /><path d="M9 18h6" />
+            </svg>
+          </div>
+          <div>
+            <h4>Full keyboard navigation</h4>
+            <p>Tab, Enter, and Escape work in the warning modal. Fully accessible, no mouse required.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta-section" id="cta">
     <div class="container-sm">
       <h2>Stop sending broken messages</h2>
-      <p>Get early access to HiGuard and be the first to know when we launch on the Chrome Web Store.</p>
-      <form class="cta-form" onsubmit="handleCTA(event)">
-        <input type="email" placeholder="you@company.com" required />
-        <button type="submit" class="btn-cta">
-          Get Early Access
+      <p>Install HiGuard in 5 seconds. Free, private, no account needed.</p>
+      <div style="margin-top: 8px;">
+        <a href="https://chromewebstore.google.com/detail/higuard/imnnbkobpjpkebbomnkncdgadpdfhpol" class="btn-cta" target="_blank">
+          Install Free on Chrome
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
-        </button>
-      </form>
-      <p class="cta-note">No spam. We only email you when HiGuard is ready.</p>
+        </a>
+      </div>
+      <p class="cta-note">v0.2 &middot; Chrome Web Store &middot; No data collected</p>
     </div>
   </section>
 
@@ -1289,18 +1398,6 @@
     <div class="copyright">© 2026 HiGuard. All rights reserved.</div>
   </footer>
 
-  <script>
-    function handleCTA(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('button');
-      const input = e.target.querySelector('input');
-      btn.textContent = '🎉 You\'re on the list!';
-      btn.style.background = '#D1FAE5';
-      btn.style.color = '#065F46';
-      btn.disabled = true;
-      input.disabled = true;
-    }
-  </script>
 
 </body>
 
